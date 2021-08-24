@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductosComponent } from './productos/productos.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
-import { ContactoComponent } from './contacto/contacto.component';
-import { CarritoComponent } from './carrito/carrito.component';
+import { ProductosComponent } from './Componentes/productos/productos.component';
+import { NosotrosComponent } from './Componentes/nosotros/nosotros.component';
+import { ContactoComponent } from './Componentes/contacto/contacto.component';
+import { CarritoComponent } from './Componentes/carrito/carrito.component';
 
 @NgModule({
   declarations: [
