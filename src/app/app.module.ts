@@ -7,8 +7,9 @@ import { ProductosComponent } from './Componentes/productos/productos.component'
 import { NosotrosComponent } from './Componentes/nosotros/nosotros.component';
 import { ContactoComponent } from './Componentes/contacto/contacto.component';
 import { CarritoComponent } from './Componentes/carrito/carrito.component';
-import { MenuComponent } from './menu/menu.component';
-import { SubmenuproductosComponent } from './submenuproductos/submenuproductos.component';
+import { MenuComponent } from './Componentes/menu/menu.component';
+import { SubmenuproductosComponent } from './Componentes/submenuproductos/submenuproductos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SubmenuproductosComponent } from './submenuproductos/submenuproductos.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
