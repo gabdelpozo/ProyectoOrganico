@@ -1,0 +1,41 @@
+<div class="imagenFondo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="centrado">
+        
+        <img src="https://i.ibb.co/68MLVQB/organic-Flow-Logo.png" alt="organic-Flow-Logo">
+        
+      </div>
+
+      <div class="centrado">
+        <input>
+        <button>BUSCAR</button>
+      </div>
+
+      <div class="centrado">
+        <ul>
+          <li><a class="active" [routerLink]="['/productos']">Productos</a></li>
+          <li><a [routerLink]="['/nosotros']">Nosotros</a></li>
+          <li><a [routerLink]="['/contacto']">Contacto</a></li>
+          <li><a [routerLink]="['/carrito']">Carrito</a></li>
+
+        </ul>
+      </div>
+      <div class="col-6">
+        
+      </div>
+      <div class="col-6 ">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+   <div class="row">
+     <div class="col-6">
+     </div>
+    <div class="col-6">
+    </div>
+  </div>
+  <router-outlet></router-outlet>
