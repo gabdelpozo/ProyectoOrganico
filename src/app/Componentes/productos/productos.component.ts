@@ -17,6 +17,7 @@ export class ProductosComponent implements OnInit {
     this.productos = this.productosDispoService.getProductos();
   }
 
+  
   mostrarFrutas() {
    alert ("ok")
   }
