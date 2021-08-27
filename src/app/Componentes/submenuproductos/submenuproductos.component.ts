@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Producto } from 'src/app/Clases/Producto';
 import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
 
@@ -8,51 +8,60 @@ import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service'
   styleUrls: ['./submenuproductos.component.scss']
 })
 export class SubmenuproductosComponent implements OnInit {
-  productos: Producto[];
-  mostrar: number = 0;
 
+  @Output() ch: EventEmitter<any> = new EventEmitter<any>(); 
 
-  todos: boolean = true;
-  frutas: boolean = true;;
-  verduras: boolean = true;;
-  secos: boolean = true;;
-  bandejas: boolean = true;;
+  checks: any = {
+    todos: true,
+    verduras: true,
+    frutas: true,
+    secos: true,
+    bandejas: true
+  };
   
   
   constructor(private productosDispoService: ProductosDispoService) { }
 
   ngOnInit(): void {
-    this.productos = this.productosDispoService.getProductos();
   }
 
   checkTodo(){
-    if(this.todos == true){
-      this.frutas = true;
-      this.verduras = true;
-      this.secos = true;
-      this.bandejas = true;
+    this.checks.todos = this.checks.todos;
+    if(this.checks.todos == true){
+      this.checks.frutas = true;
+      this.checks.verduras = true;
+      this.checks.secos = true;
+      this.checks.bandejas = true;
     }else{
-      this.frutas = false;
-      this.verduras = false;
-      this.secos = false;
-      this.bandejas = false;
+      this.checks.frutas = false;
+      this.checks.verduras = false;
+      this.checks.secos = false;
+      this.checks.bandejas = false;
     }
+    this.enviarChecks();
   }
-  mostrarFrutas(){
-    alert("ok")
-  }
-
+ 
   mostrarVerduras() {
-    alert("ok")
+    this.checks.verduras = this.checks.verduras;
+    this.enviarChecks();
   }
 
-  mostrarFrutos() {
-    alert("ok")
+  mostrarFrutas(){
+    this.checks.frutas = this.checks.frutas;
+    this.enviarChecks();
   }
 
-  mostrarBandejitas() {
-    alert("ok")
+  mostrarSecos() {
+    this.checks.secos = this.checks.secos;
+    this.enviarChecks();
   }
 
+  mostrarBandejas() {
+    this.checks.bandeja = this.checks.bandeja;
+    this.enviarChecks();
+  }
+  enviarChecks(){
+    this.ch.emit(this.checks);
+  }
 
 }

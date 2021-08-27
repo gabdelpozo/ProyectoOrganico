@@ -1,25 +1,63 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-2">
-            <app-submenuproductos></app-submenuproductos>
+            <app-submenuproductos (ch)="capturoChecks($event)"></app-submenuproductos>
         </div>
         <div class="col-10">
-
             <div class="row">
-                <div class="col-2" *ngFor="let i of productos">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{i.nombre}}</h5>
-                            <p class="card-text">{{i.unidad}} - ${{i.precio}}</p>
-                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                <div class="col-2" *ngIf="checks.verduras == true">
+                    <div *ngFor="let i of verduras">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{i.foto}}" class="card-img-top" alt="..." style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{i.nombre}}</h5>
+                                <p class="card-text">{{i.unidad}} - ${{i.precio}}</p>
+                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            </div>
                         </div>
                     </div>
-                    <hr>
                 </div>
+                <br>
+                <div class="col-2" *ngIf="checks.frutas == true">
+                    <div *ngFor="let i of frutas">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{i.foto}}" class="card-img-top" alt="..." style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{i.nombre}}</h5>
+                                <p class="card-text">{{i.unidad}} - ${{i.precio}}</p>
+                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-2" *ngIf="checks.secos == true">
+                    <div *ngFor="let i of secos">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{i.foto}}" class="card-img-top" alt="..." style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{i.nombre}}</h5>
+                                <p class="card-text">{{i.unidad}} - ${{i.precio}}</p>
+                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-2" *ngIf="checks.bandejas == true">
+                    <div class="col-2" *ngFor="let i of bandejas">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{i.foto}}" class="card-img-top" alt="..." style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{i.nombre}}</h5>
+                                <p class="card-text">{{i.unidad}} - ${{i.precio}}</p>
+                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
             </div>
-
-
         </div>
     </div>
 </div>

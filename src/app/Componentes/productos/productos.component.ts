@@ -9,29 +9,47 @@ import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service'
 })
 export class ProductosComponent implements OnInit {
 
-  todos: boolean;
-  frutas: boolean;
-  verduras: boolean;
-  secos: boolean;
-  bandejas: boolean;
+  checks: any = {
+    todos: true,
+    verduras: true,
+    frutas: true,
+    secos: true,
+    bandejas: true
+  };
+
   productos: Producto[];
-  nombre: string = '';
-  unidad: string = '';
-  precio: number = 0;
+  verduras: any = new Array();
+  frutas: any = new Array();
+  secos: any = new Array();
+  bandejas: any = new Array();
+ 
 
   constructor(private productosDispoService: ProductosDispoService) { }
 
   ngOnInit() {
     this.productos = this.productosDispoService.getProductos();
-  }
-  infoTodos(todos:boolean){
-    this.todos = todos;
-  }
-  infoFrutas(frutas){
-    this.frutas = frutas;
+    for (let i = 0; i < this.productosDispoService.getProductos().length; i++) {
+      if (this.productos[i].tipo == "verdura") {
+        this.verduras.push(this.productos[i]);
+      }
+      if (this.productos[i].tipo == "fruta") {
+        this.frutas.push(this.productos[i]);
+      }
+      if (this.productos[i].tipo == "secos") {
+        this.secos.push(this.productos[i]);
+      }
+      if (this.productos[i].tipo == "bandeja") {
+        this.bandejas.push(this.productos[i]);
+      }
+    }
+    console.log(this.verduras);
   }
 
+  capturoChecks(ch){
+    this.checks = ch;
+  }
 }
+
 
   
 

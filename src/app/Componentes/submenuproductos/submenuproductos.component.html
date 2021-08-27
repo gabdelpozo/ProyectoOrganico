@@ -12,19 +12,19 @@
             <!-- Sidebar -->
             <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:10%">
                 <div>
-                    <input type="checkbox" [(ngModel)]="todos" (change)="checkTodo()"> Todos
+                    <input type="checkbox" [(ngModel)]="checks.todos" (change)="checkTodo()" ngTrueValue="EnviarCheks(todos)"> Todos
                 </div>
                 <div>
-                    <input type="checkbox" [(ngModel)]="frutas"> Frutas
+                    <input type="checkbox" [(ngModel)]="checks.verduras" (change)="mostrarVerduras()"> Verduras
                 </div>
                 <div>
-                    <input type="checkbox" [(ngModel)]="verduras"> Verduras
+                    <input type="checkbox" [(ngModel)]="checks.frutas" (change)="mostrarFrutas()"> Frutas
                 </div>
                 <div>
-                    <input type="checkbox" [(ngModel)]="secos"> Frutos secos
+                    <input type="checkbox" [(ngModel)]="checks.secos" (change)="mostrarSecos()"> Frutos secos
                 </div>
                 <div>
-                    <input type="checkbox" [(ngModel)]="bandejas"> Bandejitas
+                    <input type="checkbox" [(ngModel)]="checks.bandejas" (change)="mostrarBandejas()"> Bandejitas
                 </div>
             </div>
 
