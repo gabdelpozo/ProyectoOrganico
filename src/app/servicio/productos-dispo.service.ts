@@ -40,7 +40,6 @@ export class ProductosDispoService {
   setProductos(x){
     this.organicArray = x;
   }
-<<<<<<< Updated upstream
   setCantidad(n:string, c:number){
     this.organicArray.forEach(p => {
       if(p.nombre == n){
@@ -51,7 +50,5 @@ export class ProductosDispoService {
   getCarrito(){
     return this.enCarrito;
   }
-=======
->>>>>>> Stashed changes
  
 }
