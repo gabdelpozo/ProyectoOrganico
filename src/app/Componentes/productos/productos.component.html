@@ -3,17 +3,19 @@
         <div class="col-2">
             <app-submenuproductos (ch)="capturoChecks($event)"></app-submenuproductos>
         </div>
-        <div class="col-10">
+        <div class="col-10 caja">
             <div class="row">
-                <div class="col-2" *ngIf="checks.verduras == true">
-                    <div *ngFor="let i of verduras">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{i.foto}}" class="card-img-top" alt="..." style="width: 100%;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{i.nombre}}</h5>
-                                <p class="card-text">{{i.unidad}} - ${{i.precio}}</p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                            </div>
+                <div class="col-3" *ngFor="let p of productos, let i = index">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{p.foto}}" class="card-img-top" alt="..." style="width: 100%;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{p.nombre}}</h4>
+                            <p class="card-text">{{p.unidad}} - ${{p.precio}}</p>
+                            <a *ngIf="cambiarBoton(p)==false; else verde" class="btn btn-primary boton" (click)="agregar(p)">Agregar al carrito</a>
+                            <ng-template #verde>
+                                <a class="btn boton botonVerde">En carrito!</a>
+                            </ng-template>
+                            <input type="number" class="input" [(ngModel)]="p.comprar">
                         </div>
                     </div>
                 </div>

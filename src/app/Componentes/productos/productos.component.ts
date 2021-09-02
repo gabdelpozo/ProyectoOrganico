@@ -18,35 +18,66 @@ export class ProductosComponent implements OnInit {
   };
 
   productos: Producto[];
-  verduras: any = new Array();
-  frutas: any = new Array();
-  secos: any = new Array();
-  bandejas: any = new Array();
- 
+  carrito: Producto[];
 
   constructor(private productosDispoService: ProductosDispoService) { }
 
   ngOnInit() {
     this.productos = this.productosDispoService.getProductos();
-    for (let i = 0; i < this.productosDispoService.getProductos().length; i++) {
-      if (this.productos[i].tipo == "verdura") {
-        this.verduras.push(this.productos[i]);
-      }
-      if (this.productos[i].tipo == "fruta") {
-        this.frutas.push(this.productos[i]);
-      }
-      if (this.productos[i].tipo == "secos") {
-        this.secos.push(this.productos[i]);
-      }
-      if (this.productos[i].tipo == "bandeja") {
-        this.bandejas.push(this.productos[i]);
-      }
-    }
-    console.log(this.verduras);
+    this.carrito = this.productosDispoService.getCarrito();
   }
 
   capturoChecks(ch){
     this.checks = ch;
+    let mostrados: Producto[] = new Array(); 
+    if (this.checks.verduras == true){
+      this.productosDispoService.getProductos().forEach(p => {
+        if (p.tipo == "verdura") {
+          mostrados.push(p);
+        }
+      })
+    }
+    if (this.checks.frutas == true) {
+      this.productosDispoService.getProductos().forEach(p => {
+        if (p.tipo == "fruta") {
+          mostrados.push(p);
+        }
+      })
+    }
+    if (this.checks.secos == true) {
+      this.productosDispoService.getProductos().forEach(p => {
+        if (p.tipo == "secos") {
+          mostrados.push(p);
+        }
+      })
+    }
+    if (this.checks.bandejas == true) {
+      this.productosDispoService.getProductos().forEach(p => {
+        if (p.tipo == "bandeja") {
+          mostrados.push(p);
+        }
+      })
+    }
+    this.productos = mostrados;
+    console.log(this.productos)
+  }
+
+  agregar(p:Producto){
+    this.productosDispoService.enCarrito.push(p);
+    this.productosDispoService.organicArray.forEach(a => {
+      if (p.nombre == a.nombre) {
+        this.productosDispoService.setCantidad(p.nombre,p.comprar)
+      }
+    })
+    console.log(this.productosDispoService.getCarrito());
+    console.log(this.productosDispoService.getProductos())
+  }
+  cambiarBoton(p:Producto){
+    if(this.productosDispoService.getCarrito().includes(p)){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
 

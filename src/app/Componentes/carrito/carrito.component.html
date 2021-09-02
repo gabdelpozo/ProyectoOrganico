@@ -1,1 +1,54 @@
-<p>carrito works!</p>
+<div class="container-fluid" style="padding: 5vh;">
+    <h1>Carrito de compras</h1>
+    
+    <div class="shopping-cart">
+    
+        <div class="column-labels">
+            <label class="product-image">Image</label>
+            <label class="product-details">Product</label>
+            <label class="product-price">Precio</label>
+            <label class="product-quantity">Cantidad</label>
+            <label class="product-removal">Eliminar</label>
+            <label class="product-line-price">Total</label>
+        </div>
+    
+        <div class="product" *ngFor="let p of enCarrito, let i=index">
+            <div class="product-image">
+                <img src="{{p.foto}}">
+            </div>
+            <div class="product-details">
+                <div class="product-title">{{p.nombre}}</div>
+                <p class="product-description">{{p.unidad}}</p>
+            </div>
+            <div class="product-price">{{p.precio}}</div>
+            <div class="product-quantity">
+                <input type="number" [(ngModel)]="p.comprar">
+            </div>
+            <div class="product-removal">
+                <button class="remove-product" (click)="eliminarProd(i)">
+                    Eliminar
+                </button>
+            </div>
+            <div class="product-line-price">{{precioTotal(p.comprar,p.precio)}}</div>
+        </div>
+    
+        <div class="totals">
+            <div class="totals-item">
+                <label>Subtotal</label>
+                <div class="totals-value" id="cart-subtotal">{{subTotal()}}</div>
+            </div>
+            <div class="totals-item">
+                <label>Envío</label>
+                <div class="totals-value" id="cart-shipping">{{envio}}</div>
+            </div>
+            <div class="totals-item totals-item-total">
+                <label>Total</label>
+                <div class="totals-value" id="cart-total">{{totalTotal()}}</div>
+            </div>
+        </div>
+    
+        <button class="checkout">Finalizar compra</button>
+    
+    </div>
+</div>
+
