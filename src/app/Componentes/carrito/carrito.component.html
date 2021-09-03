@@ -30,6 +30,7 @@
                 </button>
             </div>
             <div class="product-line-price">{{precioTotal(p.comprar,p.precio)}}</div>
+            <div class="desc" *ngIf="descuento(p)==true">Precio con descuento<br>del 20%</div>
         </div>
     
         <div class="totals">

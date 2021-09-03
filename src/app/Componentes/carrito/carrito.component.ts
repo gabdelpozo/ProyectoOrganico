@@ -19,14 +19,17 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     this.enCarrito = this.productosDispoService.getCarrito();
   }
-  precioTotal(p: number, c:number){
+  precioTotal(c: number, p:number){
     let ptotal = p*c;
+    if(c>4){
+      ptotal = ptotal*0.8;
+    }
     return ptotal;
   }
   subTotal(){
     let t = 0;
     this.enCarrito.forEach(p=>{
-      t = t+(p.precio*p.comprar);
+      t = t+this.precioTotal(p.comprar,p.precio);
     })
     return t;
   }
@@ -37,5 +40,12 @@ export class CarritoComponent implements OnInit {
   }
   eliminarProd(i:number){
     this.enCarrito.splice(i,1);
+  }
+  descuento(p:Producto){
+    let desc : boolean = false;
+    if(p.comprar>4){
+      desc=true;
+    }
+    return desc;
   }
 }

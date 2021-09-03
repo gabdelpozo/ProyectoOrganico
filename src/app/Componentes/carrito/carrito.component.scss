@@ -155,6 +155,10 @@ label {
     font-family: $font-bold;
   }
 }
+.desc{
+    font-size: smaller;
+    text-align: right;
+  }
 
 .checkout {
   float: right;
@@ -255,4 +259,6 @@ label {
       }
     }
   }
+
+  
 }
