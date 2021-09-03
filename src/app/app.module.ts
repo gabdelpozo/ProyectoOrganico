@@ -10,6 +10,8 @@ import { CarritoComponent } from './Componentes/carrito/carrito.component';
 import { MenuComponent } from './Componentes/menu/menu.component';
 import { SubmenuproductosComponent } from './Componentes/submenuproductos/submenuproductos.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ BrowserModule,
+    ReactiveFormsModule,
+    FormsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

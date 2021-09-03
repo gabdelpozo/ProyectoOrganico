@@ -1,36 +1,93 @@
-<!DOCTYPE html>
 <html>
+
 <body>
 
-    <div class="container">
-        <form action="/action_page.php">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  <div class="container">
+    <div class="col-4">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Nombre" [(ngModel)]="nombre">
+        <label for="floatingInput">Nombre</label>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="fa" placeholder="Apellido" [(ngModel)]="apellido">
+        <label for="fa">Apellido</label>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-floating">
+        <input type="any" class="form-control" id="fe" placeholder="Email" [(ngModel)]="email">
+        <label for="fe">Email</label>
 
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-floating" type="string" class="form-control" id="fe">
+        <label for="country">Pais</label>
+        <select id="country" name="country" [(ngModel)]="pais">
+          <option value="Argentina">Argentina</option>
+          <option value="Brasil">Brasil</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Chile">Chile</option>
+          <option value="Uruguay">Uruguay</option>
+          <option value="Paraguay">Paraguay</option>
+          <option value="Venezuela">Venezuela</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Canada">Canada</option>
+          <option value="Usa">USA</option>
+        </select>
 
-            <label for="country">Country</label>
-            <select id="country" name="country">
-                <option value="australia">Argentina</option>
-                <option value="brasil">Brasil</option>
-                <option value="colombia">Colombia</option>
-                <option value="chile">Chile</option>
-                <option value="uruguay">Uruguay</option>
-                <option value="paraguay">Paraguay</option>
-                <option value="venezuela">Venezuela</option>
-                <option value="mexico">Mexico</option>
-                <option value="canada">Canada</option>
-                <option value="usa">USA</option>
-            </select>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-floating">
+        <label for="fe">Comentario</label>
+        <input type="string" class="form-control" id="fe" placeholder="Comentario" [(ngModel)]="comentario"
+          style="height:200px">
 
-            <label for="subject">Subject</label>
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
-            <input type="submit" value="Submit">
-        </form>
+      </div>
     </div>
 
+
+    <button class="btn btn-outline-primary" type="button" (click)="enviarInfo()">Enviar</button>
+
+    
+    <table>
+      
+      <button class="btn btn-outline-primary" type="button" (click)="mostrar()">Ver Informacion</button>
+      <button class="btn btn-outline-primary" type="button" (click)="ocultar()">X</button>
+      <tbody *ngFor="let item of miArray; let i = index">
+        <div *ngIf="verInfo == 1">
+          <tr>
+            <table>
+              <tr>
+                <th>{{item.nombre}}</th>
+              </tr>
+              <tr>
+                <td>{{item.apellido}}</td>
+              </tr>
+              <tr>
+                <td>{{item.email}}</td>
+              </tr>
+              <tr>
+                <td>{{item.pais}}</td>
+              </tr>
+              <tr>
+                <td>{{item.comentario}}</td>
+              </tr>
+            </table>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+
+
+
+  </div>
 </body>
 
 </html>
+
+
+<!-- Como hacer para sobreescribir el archivo json que estoy levantando con el array. -->
