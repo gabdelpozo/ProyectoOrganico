@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card" style="width:400px">
+        <img src="{{p.foto}}" alt="Card image" style="width:100%">
+        <div class="card-body">
+            <h4 class="card-title">{{p.nombre}}</h4>
+            <p class="card-text">{{p.descripcion}}</p>
+            <b><p class="card-text">{{p.unidad}} - ${{p.precio}}</p></b>
+            <a *ngIf="cambiarBoton(p)==false; else verde" class="btn btn-primary boton" (click)="agregar(p)">Agregar al
+                carrito</a>
+            <ng-template #verde>
+                <a class="btn boton botonVerde">En carrito!</a>
+            </ng-template>
+            <input type="number" class="input" [(ngModel)]="p.comprar">
+        </div>
+    </div>
+    <br>
+
+</div>
+
+
+<!-- Cuando apreto en el detalle, el producto que toco guardarlo en un servicio y desde el componente del detalle capturar lo que tiene el servicio,
+        una vez que tengo la info lo muestro en el esqueleto de detalle, lo unico que cambia es precio, nombre y valos del producto. 
+    
+        Desde los prodo cargar en un servicio los productos que toco y ahi pasarse al detalle.
+    -->
