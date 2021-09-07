@@ -1,4 +1,5 @@
   import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Producto } from 'src/app/Clases/Producto';
 import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
 
@@ -20,7 +21,7 @@ export class ProductosComponent implements OnInit {
   productos: Producto[];
   carrito: Producto[];
 
-  constructor(private productosDispoService: ProductosDispoService) { }
+  constructor(private productosDispoService: ProductosDispoService, private router:Router) { }
 
   ngOnInit() {
     this.productos = this.productosDispoService.getProductos();
@@ -79,6 +80,14 @@ export class ProductosComponent implements OnInit {
       return false;
     }
   }
+
+  detalle(producto){
+    console.log(producto);
+    this.productosDispoService.setProductoSeleccionado(producto);
+    this.router.navigate(["detalle"]);
+  }
+
+  
 }
 
 

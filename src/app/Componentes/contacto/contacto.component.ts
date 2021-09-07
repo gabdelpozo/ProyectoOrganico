@@ -73,7 +73,8 @@ fs.writeFile("input.json", JSON.stringify(data), function (err) {
 //Hacer boton que vaya a una funcion que escriba HOLA en un archivo..
 
 
-//Hacer componente de detalle para que cuando toque los productos me lleve a otra pagina con la descripcion del producto que se toco. 
+//Hacer componente de detalle para que cuando toque los productos me lleve a otra pagina con la descripcion del producto que se toco.
+ 
 //Se podria poner leyenda para todos los detalles, si llevas mas de 5KG tenes 20% de dscto.
 
 

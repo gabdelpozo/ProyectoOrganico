@@ -6,8 +6,9 @@ export class Producto{
     cantidad: number;
     comprar: number;
     foto: string;
-
-    constructor(tipo: string, nombre: string, unidad: string, precio: number, cantidad: number, comprar:number, foto:string){
+    descripcion: string;
+    
+    constructor(tipo: string, nombre: string, unidad: string, precio: number, cantidad: number, comprar:number, foto:string, descripcion: string){
         this.tipo = tipo;
         this.nombre = nombre;
         this.unidad = unidad;
@@ -15,6 +16,7 @@ export class Producto{
         this.cantidad = cantidad;
         this.comprar = comprar;
         this.foto = foto;
+        this.descripcion = descripcion;
     }
 
 }

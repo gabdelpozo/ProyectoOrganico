@@ -11,6 +11,7 @@ import { MenuComponent } from './Componentes/menu/menu.component';
 import { SubmenuproductosComponent } from './Componentes/submenuproductos/submenuproductos.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
+import { DetalleComponent } from './Componentes/detalle/detalle.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule} from '@angular/forms';
     ContactoComponent,
     CarritoComponent,
     MenuComponent,
-    SubmenuproductosComponent
+    SubmenuproductosComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
