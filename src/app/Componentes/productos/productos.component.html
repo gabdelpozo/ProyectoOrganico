@@ -7,8 +7,7 @@
             <div class="row">
                 <div class="col-3" *ngFor="let p of productos, let i = index">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{p.foto}}" class="card-img-top" alt="..." style="width: 100%;">
-                        <div class="card-body">
+                        <button (click)="detalle(p)"><img src="{{p.foto}}" class="card-img-top" alt="..." style="width: 100%;"></button>
                             <h4 class="card-title">{{p.nombre}}</h4>
                             <p class="card-text">{{p.unidad}} - ${{p.precio}}</p>
                             <a *ngIf="cambiarBoton(p)==false; else verde" class="btn btn-primary boton"
@@ -17,8 +16,6 @@
                                 <a class="btn boton botonVerde">En carrito!</a>
                             </ng-template>
                             <input type="number" class="input" [(ngModel)]="p.comprar">
-                            <button (click)="detalle(p)">Ver detalle</button>
-
                         </div>
                     </div>
                 </div>
@@ -26,4 +23,3 @@
             </div>
         </div>
     </div>
-</div>
