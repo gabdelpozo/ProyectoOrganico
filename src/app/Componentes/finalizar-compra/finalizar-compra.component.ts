@@ -12,4 +12,19 @@ export class FinalizarCompraComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  tarjetaDebito: number = 0;
+  tarjetaCredito: number = 0;
+  efectivo: number = 0;
+
+  pagoCredito(){
+    this.tarjetaCredito = 1;
+  }
+
+  pagoDebito(){
+    this.tarjetaDebito = 1;
+  }
+
+  pagoEfectivo(){
+    this.efectivo = 1;
+  }
 }
