@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productosDispoService: ProductosDispoService) { }
+
 
   ngOnInit(): void {
   }
+
+  getCantidad():number{
+    let c:number;
+    c = this.productosDispoService.getCarrito().length;
+    return c;
+  }
+
 
 
 

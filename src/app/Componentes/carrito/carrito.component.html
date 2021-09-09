@@ -22,10 +22,10 @@
             </div>
             <div class="product-price">{{p.precio}}</div>
             <div class="product-quantity">
-                <input type="number" [(ngModel)]="p.comprar">
+                <input type="number" [(ngModel)]="p.comprar" min="1" max="999999999999">
             </div>
             <div class="product-removal">
-                <button class="remove-product" (click)="eliminarProd(i)">
+                <button class="remove-product" (click)="eliminarProd(i,p.nombre)">
                     Eliminar
                 </button>
             </div>

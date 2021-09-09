@@ -1,21 +1,49 @@
-<div class="container">
-    <div class="card" style="width:400px">
-        <img src="{{p.foto}}" alt="Card image" style="width:100%">
-        <div class="card-body">
-            <h4 class="card-title">{{p.nombre}}</h4>
-            <p class="card-text">{{p.descripcion}}</p>
-            <b><p class="card-text">{{p.unidad}} - ${{p.precio}}</p></b>
-            <a *ngIf="cambiarBoton(p)==false; else verde" class="btn btn-primary boton" (click)="agregar(p)">Agregar al
-                carrito</a>
-            <ng-template #verde>
-                <a class="btn boton botonVerde">En carrito!</a>
-            </ng-template>
-            <input type="number" class="input" [(ngModel)]="p.comprar">
-        </div>
-    </div>
-    <br>
+<html>
 
-</div>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" type="text/css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="product-container main-product-container">
+
+            <div class="product-left-container">
+                <img src="{{p.foto}}" alt="" width="540" />
+            </div>
+
+            <div class="product-col-container">
+                <h4 class="card-title">{{p.nombre}}</h4>
+                <p>
+                    {{p.descripcion}}
+                </p>
+
+                <b>
+                    <p class="card-text">{{p.unidad}} - ${{p.precio}}</p>
+                </b>
+                <br>
+
+                <a *ngIf="cambiarBoton(p)==false; else verde" class="btn btn-primary boton" (click)="agregar(p)">Agregar
+                    al
+                    carrito</a>
+                <ng-template #verde>
+                    <a class="btn boton botonVerde">En carrito!</a>
+                </ng-template>
+                <input type="number" class="input" [(ngModel)]="p.comprar" min="1" max="999999999999">
+
+            </div>
+
+        </div>
+
+        <br clear="all" />
+    </div>
+
+</body>
+
+</html>
+
 
 
 <!-- Cuando apreto en el detalle, el producto que toco guardarlo en un servicio y desde el componente del detalle capturar lo que tiene el servicio,

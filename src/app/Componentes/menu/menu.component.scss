@@ -31,4 +31,44 @@ ul {
     font-size: 17px;
   }
   
+  .top{
+    float: right;
+    padding: 6px;
+    margin-top: 1px;
+    margin-right: 16px;
+    border: none;
+    font-size: 17px;
+  }
+
+  .notif {
+  position:relative;
+  margin-top: initial;
+  display:block;
+  height: 40px;
+  width: 40px;
+  background: url('/../../assets/cart4.svg');
+  background-size: contain;
+  text-decoration: none;
+}
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: 35px; 
+}
+
   

@@ -71,6 +71,13 @@ export class ProductosDispoService {
   getCarrito() {
     return this.enCarrito;
   }
+  setCarrito(c){
+    for(let i:number; i<this.enCarrito.length;i++){
+      if(c = this.enCarrito[i].nombre){
+        this.enCarrito.splice(i,1);
+      }
+    }
+  }
 
   getProductoSeleccionado(): Producto {
     return this.productoSeleccionado;
@@ -88,6 +95,13 @@ export class ProductosDispoService {
     /*let obj = JSON.stringify(this.mensajes);
     let fs = require('fs');
     fs.writeFile('../../../assets/contacto.json',obj);*/
+  }
+  quitarCantidad(n:string){
+    this.organicArray.forEach(p => {
+      if (n == p.nombre) {
+        p.comprar = null;
+      }
+    })
   }
  
 }

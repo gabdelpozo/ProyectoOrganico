@@ -1,4 +1,4 @@
-  import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/Clases/Producto';
 import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
@@ -21,6 +21,7 @@ export class ProductosComponent implements OnInit {
 
   productos: Producto[];
   carrito: Producto[];
+  toast: string;
 
   constructor(private productosDispoService: ProductosDispoService, private router:Router) { }
 
@@ -65,14 +66,28 @@ export class ProductosComponent implements OnInit {
   }
 
   agregar(p:Producto){
-    this.productosDispoService.enCarrito.push(p);
-    this.productosDispoService.organicArray.forEach(a => {
-      if (p.nombre == a.nombre) {
-        this.productosDispoService.setCantidad(p.nombre,p.comprar)
-      }
-    })
-    console.log(this.productosDispoService.getCarrito());
-    console.log(this.productosDispoService.getProductos())
+    if(p.comprar == null){
+      Swal.fire('Agregue cantidad')
+    }else{
+      this.productosDispoService.enCarrito.push(p);
+      this.productosDispoService.organicArray.forEach(a => {
+        if (p.nombre == a.nombre) {
+          this.productosDispoService.setCantidad(p.nombre,p.comprar)
+        }
+      })
+      console.log(this.productosDispoService.getCarrito());
+      console.log(this.productosDispoService.getProductos())
+      Swal.fire({
+        imageUrl: '/../../assets/cart4.svg',
+        imageWidth: 400,
+        imageHeight: 200,
+        title: 'Producto agregado al carrito',
+        html: 'Podrá eliminar el producto en la sección Carrito',
+        timer: 2000,
+        timerProgressBar: false,
+        
+      })
+    }
   }
   cambiarBoton(p:Producto){
     if(this.productosDispoService.getCarrito().includes(p)){

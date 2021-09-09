@@ -40,8 +40,10 @@ export class CarritoComponent implements OnInit {
     t = this.subTotal()+this.envio;
     return t
   }
-  eliminarProd(i:number){
+  eliminarProd(i:number, p:string){
     this.enCarrito.splice(i,1);
+    this.productosDispoService.setCarrito(p);
+    this.productosDispoService.quitarCantidad(p);
   }
   descuento(p:Producto){
     let desc : boolean = false;
