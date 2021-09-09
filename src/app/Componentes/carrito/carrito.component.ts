@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { Producto } from 'src/app/Clases/Producto';
 import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
 import Swal from 'sweetalert2';
@@ -15,7 +16,7 @@ export class CarritoComponent implements OnInit {
   total: number;
   envio: number = 250;
 
-  constructor(private productosDispoService: ProductosDispoService) { }
+  constructor(private productosDispoService: ProductosDispoService, private router: Router) { }
 
   ngOnInit(): void {
     this.enCarrito = this.productosDispoService.getCarrito();
@@ -51,7 +52,14 @@ export class CarritoComponent implements OnInit {
   }
 
   finalizarCompra(){
-    Swal.fire({
+    if (this.enCarrito.length < 1) {
+      Swal.fire(
+        '¡No hay productos en el carrito!',
+        'Por favor agregue productos para finalizar la compra',
+        'error'
+      )
+    } else {
+      Swal.fire({
       title: 'Quiere agregar algo mas al carrito?',
       showDenyButton: true,
       showCancelButton: true,
@@ -59,10 +67,14 @@ export class CarritoComponent implements OnInit {
       denyButtonText: `Si, me olvide de algo`,
     }).then((result) => {
       if (result.isConfirmed) {
+        this.router.navigateByUrl('/finalizar-compra')
         Swal.fire('No, asi esta bien', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Si, me olvide de algo', '', 'info')
       }
     })
+      
+    }
   }
+    
 }

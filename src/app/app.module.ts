@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductosComponent } from './Componentes/productos/productos.component';
@@ -12,6 +12,7 @@ import { SubmenuproductosComponent } from './Componentes/submenuproductos/submen
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { DetalleComponent } from './Componentes/detalle/detalle.component';
+import { FinalizarCompraComponent } from './Componentes/finalizar-compra/finalizar-compra.component';
 
 
 @NgModule({
@@ -23,12 +24,14 @@ import { DetalleComponent } from './Componentes/detalle/detalle.component';
     CarritoComponent,
     MenuComponent,
     SubmenuproductosComponent,
-    DetalleComponent
+    DetalleComponent,
+    FinalizarCompraComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [ BrowserModule,
     ReactiveFormsModule,

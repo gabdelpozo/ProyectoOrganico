@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } 
 import { Usuario } from './usuario';
 import * as data from '../../../assets/contacto.json';
 import lista from '../../../assets/contacto.json';
+import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
 
 @Component({
   selector: 'app-contacto',
@@ -16,12 +17,12 @@ export class ContactoComponent implements OnInit {
     email: string, pais: string, comentario: string
   }[] = lista;
 
-  constructor() { }
+  constructor(private productosDispoService: ProductosDispoService) { }
 
   ngOnInit(): void {
     console.log(data);
   }
-
+  mensaje: any;
   nombre: string;
   apellido: string;
   email: string;
@@ -30,6 +31,7 @@ export class ContactoComponent implements OnInit {
 
   miArray: Usuario[] = lista;
 
+
   enviarInfo() {
     let miPersona = new Usuario();
     miPersona.nombre = this.nombre;
@@ -37,13 +39,16 @@ export class ContactoComponent implements OnInit {
     miPersona.email = this.email;
     miPersona.pais = this.pais;
     miPersona.comentario = this.comentario;
-    this.miArray.push(miPersona);
+    //this.miArray.push(miPersona);
+    this.productosDispoService.setMensajes(miPersona);
+    console.log(this.productosDispoService.getMensajes());
   }
 
   verInfo: number = 0;
 
   mostrar() {
     this.verInfo = 1;
+    console.log(this.productosDispoService.getMensajes());
   }
 
   ocultar() {

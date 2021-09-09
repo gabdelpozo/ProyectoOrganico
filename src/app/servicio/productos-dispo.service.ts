@@ -1,6 +1,10 @@
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Producto } from '../Clases/Producto';
 import { DetalleComponent } from '../Componentes/detalle/detalle.component';
+import { ContactoComponent } from '../Componentes/contacto/contacto.component';
+import { Usuario } from '../Componentes/contacto/usuario'; 
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +36,23 @@ export class ProductosDispoService {
 
   private productoSeleccionado: Producto;
 
-  constructor() { }
+  private mensajes: any;
+
+
+  constructor(private http: HttpClient) { 
+    /*this.http.get("../../../assets/contacto.json")
+    .subscribe(msj =>{
+      this.mensajes=msj;
+    })*/
+    this.http.get("../../../assets/contacto.json")
+      .subscribe(msj => {
+        this.mensajes = msj;
+      }) 
+  }
+
 
   ngOnInit() {
+
   }
 
   getProductos() {
@@ -62,4 +80,14 @@ export class ProductosDispoService {
     this.productoSeleccionado = producto;
   }
 
+  getMensajes(){
+    return this.mensajes;
+  }
+  setMensajes(msj:Usuario){
+    this.mensajes.push(msj);
+    /*let obj = JSON.stringify(this.mensajes);
+    let fs = require('fs');
+    fs.writeFile('../../../assets/contacto.json',obj);*/
+  }
+ 
 }
