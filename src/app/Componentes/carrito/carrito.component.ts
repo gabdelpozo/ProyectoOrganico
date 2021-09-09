@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/Clases/Producto';
 import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carrito',
@@ -47,5 +48,21 @@ export class CarritoComponent implements OnInit {
       desc=true;
     }
     return desc;
+  }
+
+  finalizarCompra(){
+    Swal.fire({
+      title: 'Quiere agregar algo mas al carrito?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'No, asi esta bien',
+      denyButtonText: `Si, me olvide de algo`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('No, asi esta bien', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Si, me olvide de algo', '', 'info')
+      }
+    })
   }
 }

@@ -2,6 +2,7 @@
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/Clases/Producto';
 import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos',
@@ -85,6 +86,10 @@ export class ProductosComponent implements OnInit {
     console.log(producto);
     this.productosDispoService.setProductoSeleccionado(producto);
     this.router.navigate(["detalle"]);
+  }
+
+  enCarrito(){
+    Swal.fire('Any fool can use a computer');
   }
 
   
