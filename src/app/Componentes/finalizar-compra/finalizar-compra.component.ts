@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
+import { Producto } from 'src/app/Clases/Producto';
 
 @Component({
   selector: 'app-finalizar-compra',
@@ -6,15 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finalizar-compra.component.scss']
 })
 export class FinalizarCompraComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() enCarrito: Producto[];
+  @Input() subTo: number[] = new Array();
+  @Input() total: number;
 
   tarjetaDebito: number = 0;
   tarjetaCredito: number = 0;
   efectivo: number = 0;
+
+  constructor(private productosDispoService: ProductosDispoService) { }
+
+  ngOnInit(): void {
+    this.enCarrito = this.productosDispoService.getCarrito();
+  }
 
   pagoCredito(){
     this.tarjetaCredito = 1;
@@ -27,4 +33,6 @@ export class FinalizarCompraComponent implements OnInit {
   pagoEfectivo(){
     this.efectivo = 1;
   }
+
+  
 }
