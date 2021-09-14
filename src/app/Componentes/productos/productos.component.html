@@ -1,21 +1,22 @@
 <div class="container-fluid">
+
     <div class="row">
         <div class="col-2">
-            <app-submenuproductos (ch)="capturoChecks($event)"></app-submenuproductos>
+            <app-submenuproductos class="menu" (ch)="capturoChecks($event)"></app-submenuproductos>
         </div>
-        <div class="col-10 caja">
+        <div class="col-10">
             <div class="row">
                 <div class="col-3" *ngFor="let p of productos, let i = index">
                     <div class="card" style="width: 18rem;">
                         <button (click)="detalle(p)"><img src="{{p.foto}}" class="card-img-top" alt="..." style="width: 100%;"></button>
                             <h4 class="card-title">{{p.nombre}}</h4>
                             <p class="card-text">{{p.unidad}} - ${{p.precio}}</p>
-                            <a *ngIf="cambiarBoton(p)==false; else verde" class="btn btn-primary boton" 
-                                (click)="agregar(p)" >Agregar al carrito</a>
+                            <a>Cantidad: <input type="number" class="input" [(ngModel)]="p.comprar" min="1" max="999999999999"></a>
+                            <button *ngIf="cambiarBoton(p)==false; else verde" [disabled]="isDisabled(p)" class="btn btn-primary boton" 
+                                (click)="agregar(p)" >Agregar al carrito</button>
                             <ng-template #verde>
-                                <a class="btn boton botonVerde">En carrito!</a>
+                                <button class="btn boton botonVerde disabled">En carrito!</button>
                             </ng-template>
-                            <input type="number" class="input" [(ngModel)]="p.comprar" min="1" max="999999999999">
                             
                         </div>
                     </div>

@@ -1,17 +1,7 @@
 <div class="container-fluid" style="padding: 5vh;">
     <h1>Carrito de compras</h1>
-    
+    <br><br><br>
     <div class="shopping-cart">
-    
-        <div class="column-labels">
-            <label class="product-image">Image</label>
-            <label class="product-details">Product</label>
-            <label class="product-price">Precio</label>
-            <label class="product-quantity">Cantidad</label>
-            <label class="product-removal">Eliminar</label>
-            <label class="product-line-price">Total</label>
-        </div>
-    
         <div class="product" *ngFor="let p of enCarrito, let i=index">
             <div class="product-image">
                 <img src="{{p.foto}}">
@@ -26,7 +16,7 @@
             </div>
             <div class="product-removal">
                 <button class="remove-product" (click)="eliminarProd(i,p.nombre)">
-                    Eliminar
+                    X
                 </button>
             </div>
             <div class="product-line-price">{{precioTotal(p.comprar,p.precio)}}</div>

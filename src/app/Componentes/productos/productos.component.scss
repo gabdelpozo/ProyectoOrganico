@@ -7,11 +7,16 @@
 }
 .caja{
   height: 100vh;
-  overflow-y: auto;
+  overflow-y:auto;
 }
 .botonVerde{
   color: #fff;
   background-color: #24af42;
   border-color: #24af42;
+}
+.menu{
+  position:sticky;
+  top: 10px;
+  
 }
 
