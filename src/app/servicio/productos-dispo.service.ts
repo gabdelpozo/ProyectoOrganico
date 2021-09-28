@@ -43,11 +43,11 @@ export class ProductosDispoService {
     /*this.http.get("../../../assets/contacto.json")
     .subscribe(msj =>{
       this.mensajes=msj;
-    })*/
+    })
     this.http.get("../../../assets/contacto.json")
       .subscribe(msj => {
         this.mensajes = msj;
-      }) 
+      }) */
   }
 
 
@@ -88,10 +88,11 @@ export class ProductosDispoService {
   }
 
   getMensajes(){
-    return this.mensajes;
+    console.log(this.http.get('http://localhost:3000/mensajes'))
+    return this.http.get('http://localhost:3000/mensajes')
   }
-  setMensajes(msj:Usuario){
-    this.mensajes.push(msj);
+  setMensajes(msj:any){
+    this.http.post('http://localhost:3000/mensajes',msj);
     /*let obj = JSON.stringify(this.mensajes);
     let fs = require('fs');
     fs.writeFile('../../../assets/contacto.json',obj);*/

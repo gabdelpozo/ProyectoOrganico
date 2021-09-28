@@ -101,9 +101,6 @@ export class ProductosComponent implements OnInit {
     this.router.navigate(["detalle"]);
   }
 
-  enCarrito() {
-    Swal.fire('Any fool can use a computer');
-  }
 
   isDisabled(p) {
     let disabled: boolean;

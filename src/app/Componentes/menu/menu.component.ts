@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/Clases/Producto';
 import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
+import { Router } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
 import { Script } from 'vm';
@@ -15,7 +16,7 @@ export class MenuComponent implements OnInit {
 
   carro: Producto[];
 
-  constructor(private productosDispoService: ProductosDispoService, public readonly swalTargets: SwalPortalTargets) { }
+  constructor(private productosDispoService: ProductosDispoService, public readonly swalTargets: SwalPortalTargets, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -26,6 +27,10 @@ export class MenuComponent implements OnInit {
     let c:number;
     c = this.productosDispoService.getCarrito().length;
     return c;
+  }
+
+  aCarrito(){
+    this.router.navigateByUrl('/carrito')
   }
 
 }

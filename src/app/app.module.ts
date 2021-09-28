@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { DetalleComponent } from './Componentes/detalle/detalle.component';
 import { FinalizarCompraComponent } from './Componentes/finalizar-compra/finalizar-compra.component';
+import { LoginComponent } from './Componentes/login/login.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FinalizarCompraComponent } from './Componentes/finalizar-compra/finaliz
     MenuComponent,
     SubmenuproductosComponent,
     DetalleComponent,
-    FinalizarCompraComponent
+    FinalizarCompraComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

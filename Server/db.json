@@ -14,5 +14,12 @@
             "pais": "Argentina",
             "comentario": "Aguante todo"
         }
+    ],
+
+    "login": [
+        {
+            "email": "sofiamaccarone@gmail.com",
+            "password": "123"
+        }
     ]
 }

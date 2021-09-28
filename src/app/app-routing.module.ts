@@ -6,6 +6,7 @@ import { DetalleComponent } from './Componentes/detalle/detalle.component';
 import { FinalizarCompraComponent } from './Componentes/finalizar-compra/finalizar-compra.component';
 import { NosotrosComponent } from './Componentes/nosotros/nosotros.component';
 import { ProductosComponent } from './Componentes/productos/productos.component';
+import { LoginComponent } from "./Componentes/login/login.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'finalizar-compra',
     component: FinalizarCompraComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

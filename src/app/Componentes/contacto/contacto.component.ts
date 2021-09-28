@@ -29,11 +29,11 @@ export class ContactoComponent implements OnInit {
   pais: string;
   comentario: string;
 
-  miArray: Usuario[] = lista;
+  miArray: any = this.productosDispoService.getMensajes();
 
 
   enviarInfo() {
-    let miPersona = new Usuario();
+    let miPersona :any;
     miPersona.nombre = this.nombre;
     miPersona.apellido = this.apellido;
     miPersona.email = this.email;
