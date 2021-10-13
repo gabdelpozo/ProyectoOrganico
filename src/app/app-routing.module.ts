@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AbmProductosComponent } from './Componentes/abm-productos/abm-productos.component';
 import { CarritoComponent } from './Componentes/carrito/carrito.component';
 import { ContactoComponent } from './Componentes/contacto/contacto.component';
 import { DetalleComponent } from './Componentes/detalle/detalle.component';
@@ -34,8 +35,13 @@ const routes: Routes = [
     component: FinalizarCompraComponent
   },
   {
+<<<<<<< Updated upstream
     path: 'login',
     component: LoginComponent
+=======
+    path: 'administracion',
+    component: AbmProductosComponent
+>>>>>>> Stashed changes
   }
 ];
 

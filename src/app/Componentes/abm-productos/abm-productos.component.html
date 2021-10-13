@@ -1,0 +1,102 @@
+<html><br>
+
+<body>
+
+    <table class="mx-auto">
+        <tr>
+            <th>
+                Tipo
+            </th>
+
+            <th>
+                Nombre
+            </th>
+
+            <th>
+                Unidad
+            </th>
+
+            <th>
+                Precio
+            </th>
+
+            <th>
+                Cantidad
+            </th>
+
+            <th>
+                Descripcion
+            </th>
+        </tr>
+
+        <tr>
+            <td><input type="text" [(ngModel)]='prod.tipo'></td>
+            <td><input type="text" [(ngModel)]='prod.nombre'></td>
+            <td><input type="text" [(ngModel)]='prod.unidad'></td>
+            <td><input type="text" [(ngModel)]='prod.precio'></td>
+            <td><input type="text" [(ngModel)]='prod.cantidad'></td>
+            <td><input type="text" [(ngModel)]='prod.descripcion'></td>
+        </tr>
+    </table><br>
+    <div class="center">
+        <button (click)="altaProd()" class="btn btn-success">Alta de producto</button>
+        <button (click)="getProd()" class="btn btn-danger">Get producto</button>
+    </div>
+
+
+    <!-- <div class="row" *ngFor="let p of productosBase">
+        <div class="col-2">
+            Nombre: {{p.nombre}}
+        </div>
+        <div class="col-2">
+            Precio: {{p.precio}}
+        </div>
+    </div>
+ -->
+    <table class="mx-auto" *ngIf="productosBase">
+        <tr>
+            <th>
+                Tipo
+            </th>
+
+            <th>
+                Nombre
+            </th>
+
+            <th>
+                Unidad
+            </th>
+
+            <th>
+                Precio
+            </th>
+
+            <th>
+                Cantidad
+            </th>
+
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+
+        <tr *ngFor="let p of productosBase, let i = index">
+            <td><input type="text" [(ngModel)]='p.tipo'></td>
+            <td><input type="text" [(ngModel)]='p.nombre'></td>
+            <td><input type="text" [(ngModel)]='p.unidad'></td>
+            <td><input type="text" [(ngModel)]='p.precio'></td>
+            <td><input type="text" [(ngModel)]='p.cantidad'></td>
+            <td><input type="text" [(ngModel)]='p.descripcion'></td>
+            <td>
+                <button (click)="modificarProd(p)">Modificar</button>
+            </td>
+            <td>
+                <button (click)="eliminarProd(p,i)">Eliminar</button>
+            </td>
+        </tr>
+    </table><br>
+
+</body>

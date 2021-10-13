@@ -84,18 +84,45 @@
                 </form>
             </div>
         </div>
+        <!-- <div class="col-25">
+            <div class="container">
+                
+                    <h4>Carrito <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i>
+                            <b>4</b></span>
+                    </h4>
+                    <p *ngFor="let p of productosCarrito"><a href="#">{{p.nombre}}</a> <span class="price">${{p.precio}}</span></p>
+                    <hr>
+                    <p>Total <span class="price" style="color:black"><b>${{subTotal()}}</b></span></p>
+                
+            </div>
+        </div> -->
+
         <div class="col-25">
             <div class="container">
-                <h4>Carrito <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span>
-                </h4>
-                <p><a href="#">Product 1</a> <span class="price">$8</span></p>
-                <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-                <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-                <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-                <hr>
-                <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                <div class="totals">
+                    <div class="totals-item">
+
+                        <h4>Carrito <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i>
+                            </span>
+                        </h4>
+
+                        <p *ngFor="let p of productosCarrito"><button type="button" class="btn btn-primary btn-block" (click)=detalle(p)>{{p.nombre}}</button> <span
+                                class="price">${{p.precio}}</span></p><br>
+                        <b><label>Subtotal</label></b>
+                        <div class="totals-value" id="cart-subtotal">${{subTotal()}}</div><br>
+                    </div>
+                    <div class="totals-item">
+                        <b><label>Envío</label></b>
+                        <div class="totals-value" id="cart-shipping">${{envio}}</div><br>
+                    </div>
+                    <div class="totals-item totals-item-total">
+                        <b><label>Total</label></b>
+                        <div class="totals-value" id="cart-total">$ {{totalTotal()}}</div><br>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 
 </body>

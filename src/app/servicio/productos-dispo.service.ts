@@ -68,9 +68,11 @@ export class ProductosDispoService {
       }
     })
   }
+  
   getCarrito() {
     return this.enCarrito;
   }
+
   setCarrito(c){
     for(let i:number; i<this.enCarrito.length;i++){
       if(c = this.enCarrito[i].nombre){

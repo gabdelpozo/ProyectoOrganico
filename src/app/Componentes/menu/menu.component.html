@@ -6,6 +6,8 @@
         <li><a [routerLink]="['/nosotros']">Nosotros</a></li>
         <li><a [routerLink]="['/contacto']">Contacto</a></li>
         <li><a [routerLink]="['/carrito']">Carrito</a></li>
+        <li><a [routerLink]="['/administracion']">Administracion</a></li>
+        <li><a (click)='pruebaBE()'>Prueba</a></li>
         <div class="topnav"><input type="text" placeholder="Buscar.."></div>
         <div class="top"><a class="notif" [swal]="mostrarCarro"><span class='badge badge-warning' id='lblCartCount'>{{getCantidad()}}</span></a></div>
       </ul>

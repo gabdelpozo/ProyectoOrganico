@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/Clases/Producto';
 import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
@@ -14,23 +15,39 @@ import { SwalPortalTargets } from '@sweetalert2/ngx-sweetalert2';
 })
 export class MenuComponent implements OnInit {
 
+<<<<<<< Updated upstream
   carro: Producto[];
 
   constructor(private productosDispoService: ProductosDispoService, public readonly swalTargets: SwalPortalTargets, private router: Router) { }
+=======
+  constructor(private productosDispoService: ProductosDispoService, private httpClient: HttpClient) { }
+>>>>>>> Stashed changes
 
 
   ngOnInit(): void {
     this.carro = this.productosDispoService.getCarrito();
   }
 
-  getCantidad():number{
-    let c:number;
+  getCantidad(): number {
+    let c: number;
     c = this.productosDispoService.getCarrito().length;
     return c;
   }
 
+<<<<<<< Updated upstream
   aCarrito(){
     this.router.navigateByUrl('/carrito')
   }
+=======
+  pruebaBE() {
+    this.httpClient.get("http://localhost:3000/producto")
+    .subscribe(respuesta => {
+      console.log(respuesta);
+    })
+
+  }
+
+
+>>>>>>> Stashed changes
 
 }
