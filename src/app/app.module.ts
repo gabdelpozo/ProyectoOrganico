@@ -14,11 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { DetalleComponent } from './Componentes/detalle/detalle.component';
 import { FinalizarCompraComponent } from './Componentes/finalizar-compra/finalizar-compra.component';
-<<<<<<< Updated upstream
 import { LoginComponent } from './Componentes/login/login.component';
-=======
 import { AbmProductosComponent } from './Componentes/abm-productos/abm-productos.component';
->>>>>>> Stashed changes
+
 
 
 @NgModule({
@@ -32,10 +30,11 @@ import { AbmProductosComponent } from './Componentes/abm-productos/abm-productos
     SubmenuproductosComponent,
     DetalleComponent,
     FinalizarCompraComponent,
+    LoginComponent,
 <<<<<<< Updated upstream
-    LoginComponent
-=======
     AbmProductosComponent
+=======
+    AbmProductosComponent,
 >>>>>>> Stashed changes
   ],
   imports: [
