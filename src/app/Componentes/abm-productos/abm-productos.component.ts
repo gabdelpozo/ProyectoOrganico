@@ -1,12 +1,9 @@
-<<<<<<< Updated upstream
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ok } from 'assert';
 import { Producto } from 'src/app/Clases/Producto';
+import { ProductosDispoService } from 'src/app/servicio/productos-dispo.service';
 import Swal from 'sweetalert2';
-=======
-import { Component, OnInit } from '@angular/core';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-abm-productos',
@@ -15,33 +12,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AbmProductosComponent implements OnInit {
 
-<<<<<<< Updated upstream
-  /*
-    tomate = new Producto("verdura", "Tomate", "1k", 200, 8, null, "assets/tomate.png", "Los tomates orgánicos no tienen residuos de agroquímicos, no se han usado en su producción hormonas de ningún tipo, y además los agricultores prefieren el uso de semillas orgánicas conservadas por ellos mismos, como son los tomates locales o de herencia o “reliquia”, que son productos con diferentes colores, sabores y formas.");
-  */
+  
   productosBase;
 
   prod: Producto = new Producto();
 
-  constructor(private httpClient: HttpClient) { }
-=======
-  constructor() { }
->>>>>>> Stashed changes
+  constructor(private httpClient: HttpClient, private productosDispoService: ProductosDispoService) { }
 
   ngOnInit(): void {
   }
 
-<<<<<<< Updated upstream
   altaProd() {
-    this.httpClient.post('http://localhost:3000/producto', this.prod)
+    this.productosDispoService.insertarProducto(this.prod)
       .subscribe(ok => {
         console.log(ok);
       });
-
+      this.getProd();
+      this.limpiarProducto();
   }
 
   getProd() {
-    this.httpClient.get('http://localhost:3000/producto')
+    this.productosDispoService.getProductos()
       .subscribe(ok => {
         this.productosBase = ok;
         console.log(ok);
@@ -49,20 +40,40 @@ export class AbmProductosComponent implements OnInit {
   }
 
   modificarProd(producto) {
-    this.httpClient.put('http://localhost:3000/producto/' + producto.id, producto)
+    this.productosDispoService.setProductos(producto)
       .subscribe(ok => {
+        let r: any = ok;
         console.log(ok);
+        if (r.affected == 1){
+          Swal.fire('el producto fue modificado correctamente')
+        }
       })
   }
 
   eliminarProd(producto, indice) {
-    this.httpClient.delete('http://localhost:3000/producto/' + producto.id)
+    this.productosDispoService.deleteProducto(producto)
       .subscribe(respuesta => {
         let r: any = respuesta;
         console.log(respuesta);
         if (r.affected == 1) {
-          this.productosBase.splice(indice, 1);
-          Swal.fire ("Se eliminó con éxito");
+          Swal.fire({
+            title: 'Estás seguro/a/e?',
+            text: "Querés eliminar " + producto.nombre + "?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Eliminar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.productosBase.splice(indice, 1);
+              Swal.fire(
+                'Eliminado',
+                producto.nombre + 'fue eliminado.',
+                'success'
+              )
+            }
+          })
         }
       }, (error) => {
         Swal.fire ("Ocurrió un error");
@@ -71,9 +82,10 @@ export class AbmProductosComponent implements OnInit {
     console.log(producto, indice);
 
   }
+
+  limpiarProducto(){
+    this.prod = new Producto;
+  }
 }
 
 
-=======
-}
->>>>>>> Stashed changes

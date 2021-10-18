@@ -15,13 +15,9 @@ import { SwalPortalTargets } from '@sweetalert2/ngx-sweetalert2';
 })
 export class MenuComponent implements OnInit {
 
-<<<<<<< Updated upstream
   carro: Producto[];
 
-  constructor(private productosDispoService: ProductosDispoService, public readonly swalTargets: SwalPortalTargets, private router: Router) { }
-=======
-  constructor(private productosDispoService: ProductosDispoService, private httpClient: HttpClient) { }
->>>>>>> Stashed changes
+  constructor(private productosDispoService: ProductosDispoService, public readonly swalTargets: SwalPortalTargets, private router: Router, private httpClient: HttpClient) { }
 
 
   ngOnInit(): void {
@@ -34,11 +30,9 @@ export class MenuComponent implements OnInit {
     return c;
   }
 
-<<<<<<< Updated upstream
   aCarrito(){
     this.router.navigateByUrl('/carrito')
   }
-=======
   pruebaBE() {
     this.httpClient.get("http://localhost:3000/producto")
     .subscribe(respuesta => {
@@ -48,6 +42,5 @@ export class MenuComponent implements OnInit {
   }
 
 
->>>>>>> Stashed changes
 
 }

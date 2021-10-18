@@ -31,11 +31,7 @@ import { AbmProductosComponent } from './Componentes/abm-productos/abm-productos
     DetalleComponent,
     FinalizarCompraComponent,
     LoginComponent,
-<<<<<<< Updated upstream
     AbmProductosComponent
-=======
-    AbmProductosComponent,
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { Producto } from '../Clases/Producto';
 import { DetalleComponent } from '../Componentes/detalle/detalle.component';
 import { ContactoComponent } from '../Componentes/contacto/contacto.component';
 import { Usuario } from '../Componentes/contacto/usuario'; 
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -36,10 +37,10 @@ export class ProductosDispoService {
 
   private productoSeleccionado: Producto;
 
-  private mensajes: any;
+  urlCont: string = "/producto"
 
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private httpService: HttpService) {
     /*this.http.get("../../../assets/contacto.json")
     .subscribe(msj =>{
       this.mensajes=msj;
@@ -56,11 +57,19 @@ export class ProductosDispoService {
   }
 
   getProductos() {
-    return this.organicArray;
+    return this.httpService.getProducts(this.urlCont);
   }
-  setProductos(x) {
-    this.organicArray = x;
+  insertarProducto(p) {
+    return this.httpService.insertProduct(this.urlCont, p);
   }
+  setProductos(p) {
+    return this.httpService.setProduct(this.urlCont, p);
+  }
+  deleteProducto(p){
+    return this.httpService.deleteProduct(this.urlCont, p);
+  }
+
+
   setCantidad(n: string, c: number) {
     this.organicArray.forEach(p => {
       if (p.nombre == n) {

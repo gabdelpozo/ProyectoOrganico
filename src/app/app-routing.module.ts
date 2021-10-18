@@ -8,7 +8,6 @@ import { FinalizarCompraComponent } from './Componentes/finalizar-compra/finaliz
 import { NosotrosComponent } from './Componentes/nosotros/nosotros.component';
 import { ProductosComponent } from './Componentes/productos/productos.component';
 import { LoginComponent } from "./Componentes/login/login.component";
-import { AbmProductosComponent } from './Componentes/abm-productos/abm-productos.component';
 
 const routes: Routes = [
   {
